@@ -1,2 +1,31 @@
+<<<<<<< HEAD
+*.pyc
+*.yaml~
+/build/
+/deploy/
+/benchpress-build/
+.DS_Store
+gen_docs.disable
+test.disable
+regression/temp*.html
+performance/temp*.html
+.idea/workspace.xml
+*~
+*.swp
+angular.js.tmproj
+node_modules/
+angular.xcodeproj
+.idea
+*.iml
+.agignore
+.lvimrc
+libpeerconnection.log
+npm-debug.log
+/tmp/
+.vscode
+*.log
+*.stackdump
+=======
 # Google App Engine generated folder
 appengine-generated/
+>>>>>>> 2f3e8323e4c864ef22274811143967055d617956
