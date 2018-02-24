@@ -3,12 +3,17 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: /favicon\.ico
-  static_files: favicon.ico
-  upload: favicon\.ico
+- url: /favicon.ico
+  static_files: sarcastic-footballer/dist/favicon.ico
+  upload: sarcastic-footballer/dist/assets/favicon.ico
 
-- url: .*
-  script: main.app
+- url: /(.*\.(gif|png|jpg|css|js)(|\.map))$
+  static_files: sarcastic-footballer/dist/\1
+  upload: sarcastic-footballer/dist/(.*)(|\.map)
+
+- url: /(.*)
+  static_files: sarcastic-footballer/dist/index.html
+  upload: sarcastic-footballer/dist/index.html
 
 libraries:
 - name: webapp2
