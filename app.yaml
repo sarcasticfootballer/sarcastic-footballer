@@ -4,16 +4,16 @@ threadsafe: yes
 
 handlers:
 - url: /favicon.ico
-  static_files: sarcastic-footballer/dist/favicon.ico
-  upload: sarcastic-footballer/dist/assets/favicon.ico
+  static_files: sf-angular/dist/favicon.ico
+  upload: sf-angular/dist/assets/favicon.ico
 
 - url: /(.*\.(gif|png|jpg|css|js)(|\.map))$
-  static_files: sarcastic-footballer/dist/\1
-  upload: sarcastic-footballer/dist/(.*)(|\.map)
+  static_files: sf-angular/dist/\1
+  upload: sf-angular/dist/(.*)(|\.map)
 
 - url: /(.*)
-  static_files: sarcastic-footballer/dist/index.html
-  upload: sarcastic-footballer/dist/index.html
+  static_files: sf-angular/dist/index.html
+  upload: sf-angular/dist/index.html
 
 libraries:
 - name: webapp2
