@@ -1,21 +1,25 @@
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light red ">
     <logo>
-        <a href="#" class="navbar-brand">Navbar</a>
+        <a href="#" class="navbar-brand">SARCASTIC FOOTBALLER</a>
     </logo>
-    <links>
-        <ul class="navbar-nav">
+    <links class="nav-items">
+        <ul class="navbar-nav ml-auto ">
             <li class="nav-item active">
-                <a class="nav-link waves-light" mdbRippleRadius>Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link waves-light" mdbRippleRadius><span class="navbar-text"><i class="fas fa-home"></i> HOME </span><span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-light" mdbRippleRadius>Features</a>
+                <a class="nav-link waves-light" mdbRippleRadius><span class="navbar-text"><i class="fas fa-sign-in-alt"></i> SIGN IN</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-light" mdbRippleRadius>Pricing</a>
+                <a class="nav-link waves-light" mdbRippleRadius><span class="navbar-text"><i class="fas fa-pencil-alt"></i> WRITE</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" >Disabled</a>
+              <li class="nav-item">
+                <a class="nav-link waves-light" routerLink ="Author" mdbRippleRadius><span class="navbar-text"><i class="fas fa-users"></i> ABOUT US</span></a>
             </li>
+           
+
+       
         </ul>
     </links>
+    <router-outlet></router-outlet>
 </mdb-navbar>
