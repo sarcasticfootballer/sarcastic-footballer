@@ -7,13 +7,13 @@ import { DataHandlerService } from './services/data-handler.service';
 import { NavbarComponent } from './header/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { AuthorsComponent } from './authors/authors.component';
-import {Routes,RouterModule} from '@angular/router'
+import { Routes, RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
-const varun : Routes =[
-{ path :'Home' ,component : HomeComponent },
-{ path :'Author' ,component : AuthorsComponent }
-]
+const varun: Routes = [
+  { path: 'Home', component: HomeComponent },
+  { path: 'Author', component: AuthorsComponent }
+];
 
 @NgModule({
   declarations: [
@@ -31,4 +31,4 @@ const varun : Routes =[
   providers: [DataHandlerService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
