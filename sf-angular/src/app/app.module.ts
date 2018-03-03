@@ -8,6 +8,7 @@ import { NavbarComponent } from './header/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { AuthorsComponent } from './authors/authors.component';
 import {Routes,RouterModule} from '@angular/router'
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 const varun : Routes =[
 { path :'Home' ,component : HomeComponent },
@@ -24,7 +25,8 @@ const varun : Routes =[
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(varun)
+    RouterModule.forRoot(varun),
+    MDBBootstrapModule.forRoot()
   ],
   providers: [DataHandlerService],
   bootstrap: [AppComponent]
