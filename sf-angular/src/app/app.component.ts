@@ -7,13 +7,14 @@ import { DataHandlerService } from './services/data-handler.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
   data = '';
-  constructor(private dataHandlerService:DataHandlerService){}
+  constructor(private dataHandlerService: DataHandlerService) {}
 
-  ngOnInit(){
-    this.dataHandlerService.getData('https://jsonplaceholder.typicode.com/posts')
-      .subscribe(data => this.data = JSON.stringify(data));
+  ngOnInit() {
+    this.dataHandlerService
+      .getData('https://jsonplaceholder.typicode.com/posts')
+      .subscribe(data => (this.data = JSON.stringify(data)));
   }
 }
