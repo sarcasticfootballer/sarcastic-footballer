@@ -10,7 +10,7 @@ import { AuthorsComponent } from './authors/authors.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
-const varun: Routes = [
+const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'Author', component: AuthorsComponent }
 ];
@@ -25,7 +25,7 @@ const varun: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(varun),
+    RouterModule.forRoot(routes),
     MDBBootstrapModule.forRoot()
   ],
   providers: [DataHandlerService],
