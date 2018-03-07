@@ -1,46 +1,47 @@
-<form>
-    <div class="file-field">
-        <div class="btn btn-primary btn-sm waves-light" mdbRippleRadius>
-            <span>Upload Article as Word Doc</span>
-            <!--input type="file" mdbFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput"-->
-        </div>
-        <div class="file-path-wrapper">
-            <input class="file-path" type="text" placeholder="Upload your file" [value]="showFiles()">
-        </div>
-    </div>
-
+<br>
+<div class="row">
+    <div class="col-lg-2">
+</div>
+<div class="col-lg-6">
     
+    <form class="writeArticleForm"> 
+        <h2 style="text-align:center">New Post</h2>
+        <br>
     <div class="md-form">
-        <input mdbActive type="text" id="form1" class="form-control">
-        <label for="form1" class="">Headline</label>
+        <input mdbActive type="text" id="headline" class="form-control">
+        <label for="headline" class="">Headline</label>
     </div>
 
     <div class="md-form">
-        <input mdbActive type="text" id="form2" class="form-control">
-        <label for="form1" class="">Sub-Headline</label>
+        <input mdbActive type="text" id="subheadline" class="form-control">
+        <label for="subheadline" class="">Sub-Headline</label>
     </div>
 
     <div class="md-form">
-        <input mdbActive type="text" id="form3" class="form-control">
-        <label for="form1" class="">Author</label>
+        <input mdbActive type="text" id="author" class="form-control">
+        <label for="author" class="">Author</label>
     </div>
 
     <div class="md-form">
-        <input mdbActive type="text" id="form4" class="form-control">
-        <label for="form1" class="">Picture Link</label>
+        <input mdbActive type="text" id="picturelink" class="form-control">
+        <label for="picturelink" class="">Picture Link</label>
     </div>
-
-
-        
-    <!--div class="file-field">
-        <div class="btn btn-primary btn-sm waves-light" mdbRippleRadius>
-            <span>Choose file</span>
-            <input type="file" mdbFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput">
-        </div>
-        <div class="file-path-wrapper">
-            <input class="file-path" type="text" placeholder="Upload your file" [value]="showFiles()">
-        </div>
-        <div class="">
-        </div>
-    </div-->
+    <div class="md-form">
+        <input mdbActive type="text" id="secondarypicturelink" class="form-control">
+        <label for="secondarypicturelink" class="">Secondary Picture Link</label>
+    </div>
+    <editor [init]=""></editor>
+    <div class="md-form">
+        <input mdbActive type="text" id="tags" class="form-control">
+        <label for="tags" class="">Tags</label>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-red waves-light" mdbRippleRadius>Submit</button>
+    </div>
 </form>
+</div>
+<div class="col-lg-2">HI
+</div>
+<div class="col-lg-2">Hello
+</div>
+</div>

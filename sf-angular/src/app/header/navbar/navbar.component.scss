@@ -15,7 +15,7 @@ padding-top: 1px;
 padding-bottom: 1px;
 margin-top: 8px;
 margin-bottom: 8px;
-    border-right: 3px #eeeeee solid;
+    border-right: 1px #eeeeee solid;
   
     margin-right: 8px;
 }
@@ -57,7 +57,7 @@ margin-bottom: 8px;
  
 }
 @media only screen 
-and (max-device-width: 600px)
+and (max-device-width: 1000px)
 {
     .nav-item .navbar-text
 {
@@ -66,7 +66,7 @@ padding-top: 1px;
 padding-bottom: 1px;
 margin-top: 8px;
 margin-bottom: 8px;
-    border-right: 3px black solid;
+    border-right: 1px black solid;
   
     margin-right: 8px;
 }}
