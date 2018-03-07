@@ -9,10 +9,12 @@ import { HomeComponent } from './home/home.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ArticleEditorComponent } from './article-editor/article-editor.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
-  { path: 'Author', component: AuthorsComponent }
+  { path: 'Author', component: AuthorsComponent },
+  { path: 'ArticleEditor', component: ArticleEditorComponent}
 ];
 
 @NgModule({
@@ -20,7 +22,8 @@ const routes: Routes = [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    AuthorsComponent
+    AuthorsComponent,
+    ArticleEditorComponent
   ],
   imports: [
     BrowserModule,

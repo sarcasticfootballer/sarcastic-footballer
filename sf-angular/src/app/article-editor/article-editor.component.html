@@ -1,0 +1,46 @@
+<form>
+    <div class="file-field">
+        <div class="btn btn-primary btn-sm waves-light" mdbRippleRadius>
+            <span>Upload Article as Word Doc</span>
+            <!--input type="file" mdbFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput"-->
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path" type="text" placeholder="Upload your file" [value]="showFiles()">
+        </div>
+    </div>
+
+    
+    <div class="md-form">
+        <input mdbActive type="text" id="form1" class="form-control">
+        <label for="form1" class="">Headline</label>
+    </div>
+
+    <div class="md-form">
+        <input mdbActive type="text" id="form2" class="form-control">
+        <label for="form1" class="">Sub-Headline</label>
+    </div>
+
+    <div class="md-form">
+        <input mdbActive type="text" id="form3" class="form-control">
+        <label for="form1" class="">Author</label>
+    </div>
+
+    <div class="md-form">
+        <input mdbActive type="text" id="form4" class="form-control">
+        <label for="form1" class="">Picture Link</label>
+    </div>
+
+
+        
+    <!--div class="file-field">
+        <div class="btn btn-primary btn-sm waves-light" mdbRippleRadius>
+            <span>Choose file</span>
+            <input type="file" mdbFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput">
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path" type="text" placeholder="Upload your file" [value]="showFiles()">
+        </div>
+        <div class="">
+        </div>
+    </div-->
+</form>
