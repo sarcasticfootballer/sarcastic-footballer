@@ -8,8 +8,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  	<script src='https://cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script src="/jsfiles/js/jquery.js"></script>
  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-  <script>tinymce.init({ selector:'textarea' });</script>
+  <script>
+                tinymce.init({
+    selector: '#mytextarea',
+    schema: 'html5-strict',
+    valid_children: '-p[img|figure],-em[img],-p,-strong[img]',
+    theme: 'modern',
+    height: 600,
+    plugins: [
+      'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+      'save table contextmenu directionality emoticons template paste textcolor'
+    ],
+    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+  });
+
+function convertImgTags(){
+    var a = tinyMCE.activeEditor.getContent();
+    a = $.parseHTML(a);
+    var blkstr = [];
+    $.each(a, function(idx2,val2) {
+        var str = ''; 
+        if($(val2).children('img').length == 1)
+            str = "<figure>" + val2.innerHTML + "</figure>";
+        else             
+            str = val2.outerHTML ;
+        blkstr.push(str);
+    });
+    tinyMCE.activeEditor.setContent(blkstr.join(''));
+    tinyMCE.activeEditor.save();
+}
+  </script>
 </head>
 <body>
   <app-root></app-root>

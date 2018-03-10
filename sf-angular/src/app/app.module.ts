@@ -10,7 +10,7 @@ import { AuthorsComponent } from './authors/authors.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ArticleEditorComponent } from './article-editor/article-editor.component';
-import { EditorModule } from '@tinymce/tinymce-angular';
+
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -30,8 +30,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    MDBBootstrapModule.forRoot(),
-    EditorModule
+    MDBBootstrapModule.forRoot()
   ],
   providers: [DataHandlerService],
   bootstrap: [AppComponent]
