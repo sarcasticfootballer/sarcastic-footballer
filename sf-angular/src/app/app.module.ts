@@ -10,7 +10,7 @@ import { AuthorsComponent } from './authors/authors.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ArticleEditorComponent } from './article-editor/article-editor.component';
-
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -30,7 +30,9 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DataHandlerService],
   bootstrap: [AppComponent]
