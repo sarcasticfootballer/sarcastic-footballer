@@ -13,41 +13,68 @@
         <label for="headline" class="">Headline</label>
         <div *ngIf="articleEditor.get('headline').invalid && articleEditor.get('headline').touched" >
             <div *ngIf="articleEditor.get('headline').errors.required" class="alert alert-warning">
-                  required
+                  Please Enter a headline
             </div>
         </div>
     </div>
  
     <div class="md-form">
-        <input mdbActive type="text" id="subheadline" class="form-control" required>
+        <input mdbActive type="text" id="subheadline" class="form-control" formControlName="subheadline" required>
         <label for="subheadline" class="">Sub-Headline</label>
+          <div *ngIf="articleEditor.get('subheadline').invalid && articleEditor.get('subheadline').touched" >
+            <div *ngIf="articleEditor.get('subheadline').errors.required" class="alert alert-warning">
+                  Please Enter a sub headline
+            </div>
+        </div>
     </div>
-
+ <textarea class="form-control tinymce mceEditor"  id="content" name = "content"  formControlName="content" ></textarea><br>
     <div class="md-form">
-        <input mdbActive type="text" id="author" class="form-control" required>
+        <input mdbActive type="text" id="author" class="form-control" formControlName="author" required>
         <label for="author" class="">Author</label>
+        <div *ngIf="articleEditor.get('author').invalid && articleEditor.get('author').touched" >
+            <div *ngIf="articleEditor.get('author').errors.required" class="alert alert-warning">
+                   Please Enter Author's name
+            </div>
+        </div>
     </div>
 
     <div class="md-form">
-        <input mdbActive type="text" id="picturelink" class="form-control" required>
+        <input mdbActive type="text" id="picturelink" class="form-control" formControlName="picturelink" required>
         <label for="picturelink" class="">Picture Link</label>
+        <div *ngIf="articleEditor.get('picturelink').invalid && articleEditor.get('picturelink').touched" >
+            <div *ngIf="articleEditor.get('picturelink').errors.required" class="alert alert-warning">
+                   Please Enter a Picture Link
+            </div>
+        </div>
     </div>
     <div class="md-form">
-        <input mdbActive type="text" id="secondarypicturelink" class="form-control" required>
+        <input mdbActive type="text" id="secondarypicturelink" class="form-control" formControlName="secondarypicturelink" required>
         <label for="secondarypicturelink" class="">Secondary Picture Link</label>
+        <div *ngIf="articleEditor.get('secondarypicturelink').invalid && articleEditor.get('secondarypicturelink').touched" >
+            <div *ngIf="articleEditor.get('secondarypicturelink').errors.required" class="alert alert-warning">
+                  Please Enter a Secondary Picture Link
+            </div>
+        </div>
     </div>
-  <textarea style = "font-size:20px" rows= "10" cols = "50" id="mytextarea" name = "content" class="form-control" formControlName="content" (change)="hello()"></textarea>
+  <!--  <textarea  id="mytextarea" name = "content" class="form-control" formControlName="content" >Next, start a free trial!</textarea>
+  <textarea style = "font-size:20px" rows= "10" cols = "50" id="mytextarea" name = "content" class="form-control" formControlName="content" (change)="hello()"></textarea>-->
+ 
     <div class="md-form">
-        <input mdbActive type="text" id="tags" class="form-control" required>
+        <input mdbActive type="text" id="tags" class="form-control" formControlName="tags" required>
         <label for="tags" class="">Tags</label>
+        <div *ngIf="articleEditor.get('tags').invalid && articleEditor.get('tags').touched" >
+            <div *ngIf="articleEditor.get('tags').errors.required" class="alert alert-warning">
+                  Please Enter comma separated Tags  ex Real Madrid,Ronaldo,La Liga
+            </div>
+        </div>
     </div>
     <div class="text-center">
-        <button class="btn btn-red waves-light" mdbRippleRadius>Submit</button>
+        <button class="btn btn-red waves-light" onClick="show()" mdbRippleRadius>Submit</button>
     </div>
 </form>
 </div>
-<div class="col-lg-2">HI
+<div class="col-lg-2">
 </div>
-<div class="col-lg-2">Hello
+<div class="col-lg-2">
 </div>
 </div>

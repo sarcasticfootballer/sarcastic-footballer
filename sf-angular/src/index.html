@@ -9,39 +9,72 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   	<script src='https://cdn.tinymce.com/4/tinymce.min.js'></script>
-    <script src="/jsfiles/js/jquery.js"></script>
- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
+ 
   <script>
-                tinymce.init({
-    selector: '#mytextarea',
-    schema: 'html5-strict',
-    valid_children: '-p[img|figure],-em[img],-p,-strong[img]',
-    theme: 'modern',
-    height: 600,
-    plugins: [
-      'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-      'save table contextmenu directionality emoticons template paste textcolor'
-    ],
-    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
-  });
+    tinyMCE.init({
+	/* replace textarea having class .tinymce with tinymce editor */
+  mode : "specific_textareas",
+	editor_selector : "mceEditor",
+	/* theme of the editor */
+	theme: "modern",
+	skin: "lightgray",
+	
+	/* width and height of the editor */
+	width: "100%",
+	height: 300,
 
-function convertImgTags(){
-    var a = tinyMCE.activeEditor.getContent();
-    a = $.parseHTML(a);
-    var blkstr = [];
-    $.each(a, function(idx2,val2) {
-        var str = ''; 
-        if($(val2).children('img').length == 1)
-            str = "<figure>" + val2.innerHTML + "</figure>";
-        else             
-            str = val2.outerHTML ;
-        blkstr.push(str);
-    });
-    tinyMCE.activeEditor.setContent(blkstr.join(''));
-    tinyMCE.activeEditor.save();
-}
-  </script>
+	/* display statusbar */
+	statubar: true,
+	
+	/* plugin */
+	plugins: [
+		"advlist autolink link image lists charmap print preview hr anchor pagebreak",
+		"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+		"save table contextmenu directionality emoticons template paste textcolor"
+	],
+	/* toolbar */
+	toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons",
+	
+	/* style */
+	style_formats: [
+		{title: "Headers", items: [
+			{title: "Header 1", format: "h1"},
+			{title: "Header 2", format: "h2"},
+			{title: "Header 3", format: "h3"},
+			{title: "Header 4", format: "h4"},
+			{title: "Header 5", format: "h5"},
+			{title: "Header 6", format: "h6"}
+		]},
+		{title: "Inline", items: [
+			{title: "Bold", icon: "bold", format: "bold"},
+			{title: "Italic", icon: "italic", format: "italic"},
+			{title: "Underline", icon: "underline", format: "underline"},
+			{title: "Strikethrough", icon: "strikethrough", format: "strikethrough"},
+			{title: "Superscript", icon: "superscript", format: "superscript"},
+			{title: "Subscript", icon: "subscript", format: "subscript"},
+			{title: "Code", icon: "code", format: "code"}
+		]},
+		{title: "Blocks", items: [
+			{title: "Paragraph", format: "p"},
+			{title: "Blockquote", format: "blockquote"},
+			{title: "Div", format: "div"},
+			{title: "Pre", format: "pre"}
+		]},
+		{title: "Alignment", items: [
+			{title: "Left", icon: "alignleft", format: "alignleft"},
+			{title: "Center", icon: "aligncenter", format: "aligncenter"},
+			{title: "Right", icon: "alignright", format: "alignright"},
+			{title: "Justify", icon: "alignjustify", format: "alignjustify"}
+		]}
+	]
+}); 
+function show()
+{
+  alert("hi");
+var content = tinyMCE.get('content').getContent();
+alert(content);}
+    </script>
 </head>
 <body>
   <app-root></app-root>
