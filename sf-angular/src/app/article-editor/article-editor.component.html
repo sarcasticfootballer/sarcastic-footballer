@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-lg-2">
 </div>
-<div class="col-lg-6">
+<div class="col-lg-8">
     
     <form [formGroup] ="articleEditor" class="articleEditor"> 
         <h2 style="text-align:center">New Post</h2>
@@ -27,7 +27,8 @@
             </div>
         </div>
     </div>
- <textarea class="form-control tinymce mceEditor"  id="content" name = "content"  formControlName="content" ></textarea><br>
+<editor theme ="modern" [init]="{height: '480'}" toolbar="code,image,bold,italic" plugins="code,image imagetools" menu="tools" name = "content" class="form-control" formControlName="content"></editor>
+ <!--<textarea class="form-control tinymce mceEditor"  id="content" name = "content"  formControlName="content" ></textarea>--><br>
     <div class="md-form">
         <input mdbActive type="text" id="author" class="form-control" formControlName="author" required>
         <label for="author" class="">Author</label>

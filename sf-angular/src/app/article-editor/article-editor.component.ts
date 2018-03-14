@@ -1,7 +1,7 @@
 //import { Component, OnInit } from '@angular/core';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormControl } from '@angular/forms';
-import { tinyMCE} from 'tinymce/tinymce.min.js';
+
 @Component({
   selector: 'app-article-editor',
   templateUrl: './article-editor.component.html',
@@ -18,7 +18,7 @@ export class ArticleEditorComponent implements OnInit {
       picturelink:new FormControl('',[Validators.required]),
       secondarypicturelink:new FormControl('',[Validators.required]),
       tags:new FormControl('',[Validators.required])
-
+ 
 
     });
 
@@ -28,8 +28,9 @@ export class ArticleEditorComponent implements OnInit {
   }
 
   hello(){
+    var content;
     console.log(this.articleEditor.get('headline').value);
-    console.log(document.getElementById('content').innerHTML);
-    console.log(tinyMCE.get('content').getContent());
+    content =(this.articleEditor.get('content').value);
+    alert(content);
   }
 }

@@ -11,6 +11,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ArticleEditorComponent } from './article-editor/article-editor.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { EditorModule } from '@tinymce/tinymce-angular';
+
+
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -32,7 +35,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EditorModule
   ],
   providers: [DataHandlerService],
   bootstrap: [AppComponent]
