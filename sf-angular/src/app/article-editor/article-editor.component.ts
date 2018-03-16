@@ -1,6 +1,8 @@
 //import { Component, OnInit } from '@angular/core';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormControl } from '@angular/forms';
+import { DataHandlerService } from '../services/data-handler.service';
+import { Article } from '../DTO/Article.model';
 
 @Component({
   selector: 'app-article-editor',
@@ -9,7 +11,8 @@ import { Validators,FormGroup,FormControl } from '@angular/forms';
 })
 export class ArticleEditorComponent implements OnInit {
   articleEditor;
-  constructor() { 
+  
+  constructor(private  datahandler:DataHandlerService) { 
     this.articleEditor = new FormGroup({
       headline:new FormControl('',[Validators.required]),
       content:new FormControl('',[Validators.required]),
@@ -21,16 +24,24 @@ export class ArticleEditorComponent implements OnInit {
  
 
     });
-
+    
   }
 
   ngOnInit() {
   }
 
-  hello(){
-    var content;
-    console.log(this.articleEditor.get('headline').value);
-    content =(this.articleEditor.get('content').value);
-    alert(content);
+  submit(){
+    let article = new Article(
+      this.articleEditor.get('headline').value,
+      this.articleEditor.get('content').value,
+      this.articleEditor.get('subheadline').value,
+      this.articleEditor.get('author').value,
+      this.articleEditor.get('picturelink').value,
+      this.articleEditor.get('secondarypicturelink').value,
+      this.articleEditor.get('tags').value
+   );
+   
+  this.datahandler.submitArticle(article);
+    
   }
 }

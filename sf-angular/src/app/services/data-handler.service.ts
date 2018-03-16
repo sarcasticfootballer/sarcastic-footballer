@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-
+import { Article } from '../DTO/Article.model'
 @Injectable()
 export class DataHandlerService {
   constructor(private http: HttpClient) {}
@@ -11,18 +11,11 @@ export class DataHandlerService {
     return this.http.get(url);
   }
 
-  submitArticle(article: NewArticle) {
-    this.http.post(this.url, article);
+  submitArticle(article: Article) {
+    console.log("trig");
+    debugger;;
+    this.http.post(this.url, article).subscribe(a=>console.log(a));
   }
 }
 
-interface NewArticle {
-  headline: string;
-  sideHeadline: string;
-  picLinkMain: string;
-  picLinkSec: string;
-  content: string;
-  authorName: string;
-  tags: string[];
-  timestamp: Date;
-}
+

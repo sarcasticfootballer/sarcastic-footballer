@@ -9,7 +9,7 @@
         <br>
     <div class="md-form">
        
-        <input mdbActive type="text" id="headline" name="headline" class="form-control" formControlName="headline" (change)="hello()">
+        <input mdbActive type="text" id="headline" name="headline" class="form-control" formControlName="headline" >
         <label for="headline" class="">Headline</label>
         <div *ngIf="articleEditor.get('headline').invalid && articleEditor.get('headline').touched" >
             <div *ngIf="articleEditor.get('headline').errors.required" class="alert alert-warning">
@@ -70,7 +70,7 @@
         </div>
     </div>
     <div class="text-center">
-        <button class="btn btn-red waves-light" onClick="show()" mdbRippleRadius>Submit</button>
+        <button class="btn btn-red waves-light" (click)="submit()" mdbRippleRadius>Submit</button>
     </div>
 </form>
 </div>
