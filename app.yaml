@@ -3,9 +3,12 @@ api_version: 1
 threadsafe: yes
 
 skip_files:
-- ^(?!dist)
+- ^(?!(dist|main.py))
 
 handlers:
+- url: /api/.*
+  script: main.app
+
 - url: /favicon.ico
   static_files: dist/favicon.ico
   upload: dist/assets/favicon.ico

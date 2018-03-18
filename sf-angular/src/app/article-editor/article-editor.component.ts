@@ -1,6 +1,6 @@
-//import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { Validators,FormGroup,FormControl } from '@angular/forms';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { DataHandlerService } from '../services/data-handler.service';
 import { Article } from '../DTO/Article.model';
 
@@ -11,27 +11,23 @@ import { Article } from '../DTO/Article.model';
 })
 export class ArticleEditorComponent implements OnInit {
   articleEditor;
-  
-  constructor(private  datahandler:DataHandlerService) { 
+
+  constructor(private datahandler: DataHandlerService) {
     this.articleEditor = new FormGroup({
-      headline:new FormControl('',[Validators.required]),
-      content:new FormControl('',[Validators.required]),
-      subheadline:new FormControl('',[Validators.required]),
-      author:new FormControl('',[Validators.required]),
-      picturelink:new FormControl('',[Validators.required]),
-      secondarypicturelink:new FormControl('',[Validators.required]),
-      tags:new FormControl('',[Validators.required])
- 
-
+      headline: new FormControl('', [Validators.required]),
+      content: new FormControl('', [Validators.required]),
+      subheadline: new FormControl('', [Validators.required]),
+      author: new FormControl('', [Validators.required]),
+      picturelink: new FormControl('', [Validators.required]),
+      secondarypicturelink: new FormControl('', [Validators.required]),
+      tags: new FormControl('', [Validators.required])
     });
-    
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  submit(){
-    let article = new Article(
+  submit() {
+    const article = new Article(
       this.articleEditor.get('headline').value,
       this.articleEditor.get('content').value,
       this.articleEditor.get('subheadline').value,
@@ -39,9 +35,8 @@ export class ArticleEditorComponent implements OnInit {
       this.articleEditor.get('picturelink').value,
       this.articleEditor.get('secondarypicturelink').value,
       this.articleEditor.get('tags').value
-   );
-   
-  this.datahandler.submitArticle(article);
-    
+    );
+
+    this.datahandler.submitArticle(article);
   }
 }

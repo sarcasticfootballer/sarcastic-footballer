@@ -1,20 +1,18 @@
-
-
 export class Article {
-    headline;
-    subheadline;
-    author;
-    picturelink;
-    secondarypicturelink;
-    tags;
-    content;
-    constructor(headline,content,subheadline,author,picturelink,secondarypicturelink,tags){
-        this.headline=headline;
-        this.subheadline=subheadline;
-        this.author =author;
-        this.picturelink =picturelink;
-        this.secondarypicturelink =secondarypicturelink;
-        this.tags=tags;
-        this.content=content;
-    }
+  headline;
+  sideHeadline;
+  author;
+  picLink;
+  secPicLink;
+  tags;
+  content;
+  constructor(headline, content, subheadline, author, picturelink, secondarypicturelink, tags) {
+    this.headline = headline;
+    this.sideHeadline = subheadline;
+    this.author = author;
+    this.picLink = picturelink;
+    this.secPicLink = secondarypicturelink;
+    this.tags = tags.split(',');
+    this.content = content;
+  }
 }
