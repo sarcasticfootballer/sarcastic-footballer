@@ -12,6 +12,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ArticleEditorComponent } from './article-editor/article-editor.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { StoryComponent } from './story/story.component';
 
 
 
@@ -27,7 +28,8 @@ const routes: Routes = [
     NavbarComponent,
     HomeComponent,
     AuthorsComponent,
-    ArticleEditorComponent
+    ArticleEditorComponent,
+    StoryComponent
   ],
   imports: [
     BrowserModule,
