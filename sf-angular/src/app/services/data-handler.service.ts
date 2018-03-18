@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Article } from '../DTO/Article.model';
+import { Article, IArticle } from '../DTO/Article.model';
 @Injectable()
 export class DataHandlerService {
   constructor(private http: HttpClient) {}
@@ -11,7 +11,7 @@ export class DataHandlerService {
     return this.http.get(url);
   }
 
-  submitArticle(article: Article) {
+  submitArticle(article: Readonly<IArticle>) {
     console.log(article);
     this.http.post(`${this.baseUrl}publisharticle`, article).subscribe(a => console.log(a));
   }

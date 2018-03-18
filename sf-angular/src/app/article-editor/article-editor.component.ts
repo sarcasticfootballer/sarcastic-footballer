@@ -2,7 +2,7 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { DataHandlerService } from '../services/data-handler.service';
-import { Article } from '../DTO/Article.model';
+import { Article, IArticle } from '../DTO/Article.model';
 
 @Component({
   selector: 'app-article-editor',
@@ -27,7 +27,7 @@ export class ArticleEditorComponent implements OnInit {
   ngOnInit() {}
 
   submit() {
-    const article = new Article(
+    const article: IArticle = new Article(
       this.articleEditor.get('headline').value,
       this.articleEditor.get('content').value,
       this.articleEditor.get('subheadline').value,

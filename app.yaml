@@ -3,23 +3,23 @@ api_version: 1
 threadsafe: yes
 
 skip_files:
-- ^(?!(dist|main.py))
+- ^(?!(sf-angular/dist|main.py))
 
 handlers:
 - url: /api/.*
   script: main.app
 
 - url: /favicon.ico
-  static_files: dist/favicon.ico
-  upload: dist/assets/favicon.ico
+  static_files: sf-angular/dist/favicon.ico
+  upload: sf-angular/dist/assets/favicon.ico
 
 - url: /(.*\.(gif|png|jpg|css|js)(|\.map))$
-  static_files: dist/\1
-  upload: dist/(.*)(|\.map)
+  static_files: sf-angular/dist/\1
+  upload: sf-angular/dist/(.*)(|\.map)
 
 - url: /(.*)
-  static_files: dist/index.html
-  upload: dist/index.html
+  static_files: sf-angular/dist/index.html
+  upload: sf-angular/dist/index.html
 
 libraries:
 - name: webapp2

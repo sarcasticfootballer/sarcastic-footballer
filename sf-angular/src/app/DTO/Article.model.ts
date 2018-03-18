@@ -1,11 +1,11 @@
-export class Article {
-  headline;
-  sideHeadline;
-  author;
-  picLink;
-  secPicLink;
-  tags;
-  content;
+export class Article implements IArticle {
+  headline: string;
+  sideHeadline: string;
+  author: string;
+  picLink: string;
+  secPicLink: string;
+  tags: string[];
+  content: string;
   constructor(headline, content, subheadline, author, picturelink, secondarypicturelink, tags) {
     this.headline = headline;
     this.sideHeadline = subheadline;
@@ -15,4 +15,19 @@ export class Article {
     this.tags = tags.split(',');
     this.content = content;
   }
+}
+
+export interface IArticle {
+  headline: string;
+  sideHeadline: string;
+  author: string;
+  picLink: string;
+  secPicLink: string;
+  tags: string[];
+  content: string;
+  upVotes?: number;
+  downVotes?: number;
+  featured?: boolean;
+  views?: number;
+  created?: Date;
 }

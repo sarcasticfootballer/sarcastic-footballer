@@ -1,6 +1,5 @@
-rm -r dist
+#!/bin/bash
 cd sf-angular
 ng build
-cp -r dist ../
 cd ..
 dev_appserver.py .
