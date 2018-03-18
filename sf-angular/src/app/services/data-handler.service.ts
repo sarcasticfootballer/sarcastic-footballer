@@ -13,7 +13,6 @@ export class DataHandlerService {
 
   submitArticle(article: Article) {
     console.log("trig");
-    debugger;;
     this.http.post(this.url, article).subscribe(a=>console.log(a));
   }
 }

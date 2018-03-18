@@ -10,6 +10,8 @@ import { DataHandlerService } from './services/data-handler.service';
 export class AppComponent implements OnInit {
   title = 'app';
   data = '';
+  articleData ='';
+
   constructor(private dataHandlerService: DataHandlerService) {}
 
   ngOnInit() {
