@@ -70,7 +70,7 @@
         </div>
     </div>
     <div class="text-center">
-        <button class="btn btn-red waves-light" (click)="submit()" mdbRippleRadius>Submit</button>
+        <button class="btn btn-red waves-light" (click)="submit()"  [disabled]="(articleEditor.invalid)" mdbRippleRadius>Submit</button>
     </div>
 </form>
 </div>

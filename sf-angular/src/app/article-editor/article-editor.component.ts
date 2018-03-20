@@ -3,6 +3,7 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { DataHandlerService } from '../services/data-handler.service';
 import { Article, IArticle } from '../DTO/Article.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-article-editor',
@@ -12,7 +13,7 @@ import { Article, IArticle } from '../DTO/Article.model';
 export class ArticleEditorComponent implements OnInit {
   articleEditor;
 
-  constructor(private datahandler: DataHandlerService) {
+  constructor(private datahandler: DataHandlerService,private router:Router) {
     this.articleEditor = new FormGroup({
       headline: new FormControl('', [Validators.required]),
       content: new FormControl('', [Validators.required]),
@@ -38,5 +39,6 @@ export class ArticleEditorComponent implements OnInit {
     );
 
     this.datahandler.submitArticle(article);
+    this.router.navigate(['Home']);
   }
 }
