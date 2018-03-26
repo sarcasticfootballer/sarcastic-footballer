@@ -1,22 +1,56 @@
 .box-story-title
 {
     font-family: Arial, Helvetica, sans-serif;
-        padding: 15px 15px 20px 8px;
-    font-size: 19px;
-    line-height: 24px;
-    max-width: 50ch;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: bold;
+     padding: 5px;
+     padding-top: 10px;
+     overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 21px;     /* fallback */
+   max-height: 57px;      /* fallback */
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical; 
+   font-weight: bold;
+}
+.box-story-subheadline
+{
+    font-family: Arial, Helvetica, sans-serif;
+     padding: 5px;
+        font-size: 13px;
+     overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 21px;     /* fallback */
+   max-height: 57px;      /* fallback */
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical; 
+
+}
+.box-story-other
+{
+     font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+     font-size: 15px;
+      font-weight: bold;
+}
+.story-author
+{
+    float: left;
+}
+.story-views
+{
+    float: right;
 }
 .story
 {
     background-color: white;
     width: 100%;
     margin: 10px;
-    
-     box-shadow: 2px 2px #aaaaaa;
+
+     box-shadow:0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
           display: block;
+          border-radius: .3rem;
+          
 }
 .story-image
 {

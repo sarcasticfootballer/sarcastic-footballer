@@ -13,6 +13,7 @@ import { ArticleEditorComponent } from './article-editor/article-editor.componen
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { StoryComponent } from './story/story.component';
+import { TrendingStoryComponent } from './trending-story/trending-story.component';
 
 
 
@@ -29,7 +30,8 @@ const routes: Routes = [
     HomeComponent,
     AuthorsComponent,
     ArticleEditorComponent,
-    StoryComponent
+    StoryComponent,
+    TrendingStoryComponent
   ],
   imports: [
     BrowserModule,
