@@ -6,9 +6,19 @@
   </div>
   
   <div class="col-md-6">
-    <div class="row" *ngFor="let story of articleData">
+    <div class="row" *ngFor="let story of latestArticleData">
       <app-story [story]="story"></app-story>
      
     </div>
   </div>
+</div>
+<div class="row">
+  <div class="col-md-1">
+    
+  </div>
+  <div class="col-md-4"> 
+  <div class="row" *ngFor="let paginatedStory of articleData">
+      <app-paginated-story [paginatedStory]="paginatedStory"></app-paginated-story>
+  </div>
+    </div>
 </div>

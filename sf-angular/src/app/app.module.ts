@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { StoryComponent } from './story/story.component';
 import { TrendingStoryComponent } from './trending-story/trending-story.component';
+import { PaginatedStoryComponent } from './paginated-story/paginated-story.component';
 
 
 
@@ -31,7 +32,8 @@ const routes: Routes = [
     AuthorsComponent,
     ArticleEditorComponent,
     StoryComponent,
-    TrendingStoryComponent
+    TrendingStoryComponent,
+    PaginatedStoryComponent
   ],
   imports: [
     BrowserModule,
