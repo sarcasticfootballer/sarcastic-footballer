@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:bold');
 .row
 {
     margin-right: 0px;
+}
+.header
+{
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    text-align: center;
+    padding-top: 10px;
 }
