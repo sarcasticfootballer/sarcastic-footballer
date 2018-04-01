@@ -15,6 +15,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { StoryComponent } from './story/story.component';
 import { TrendingStoryComponent } from './trending-story/trending-story.component';
 import { PaginatedStoryComponent } from './paginated-story/paginated-story.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -42,7 +43,8 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    EditorModule
+    EditorModule,
+    NgxPaginationModule
   ],
   providers: [DataHandlerService],
   bootstrap: [AppComponent]
