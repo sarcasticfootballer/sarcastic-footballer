@@ -12,3 +12,8 @@
     opacity: 0.7;
     color: #fdd835;
 }
+pagination-controls /deep/ .ngx-pagination .current {
+  background: #fdd835;
+color:black;
+font-weight:bold;
+}

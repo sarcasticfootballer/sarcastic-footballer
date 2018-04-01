@@ -1,19 +1,19 @@
-<div class="story">
-    <div class="row">
-    <div class="col-md-5">
-   <img class ="story-image" src="{{paginatedStory.picturelink}}"/> </div>  
-    <div class="col-md-6 box-story">  
-      <div class="box-story-title">
-         {{paginatedStory.headline}}
-      </div>
-  <div class="box-story-subheadline">
-         {{paginatedStory.subheadline}}
-      </div>
-    
-      <div class="box-story-other">
-   <div class="story-author"> {{paginatedStory.author}}</div>
-   <div class="story-views">  <i class="fas fa-eye"></i>{{paginatedStory.views}}</div>
+<div class="card">
+    <a href="#">
+        <!--Card image-->
+        <div class="view overlay hm-zoom hm-lime-light">
+            <img src="{{paginatedStory.picturelink}}" class="img-fluid" alt="">
+         
+                <div class="mask flex-center"></div>
+          
+        </div>
+
+        <!--Card content-->
+        <div class="card-body">
+            <!--Title-->
+            <div class="card-title">{{paginatedStory.headline}}</div>
+           <!-- <div class="card-tags">{{paginatedStory.tags}}</div>-->
+           <!-- <p class="card-text">{{paginatedStory.subheadline}}</p>-->
+        </div>
+</a>
     </div>
-    </div>
-</div>
-</div>
