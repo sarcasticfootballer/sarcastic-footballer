@@ -1,5 +1,7 @@
 *.pyc
 *.yaml~
+*.db
+appengine.None/
 /build/
 /deploy/
 /benchpress-build/
