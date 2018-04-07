@@ -34,12 +34,28 @@ import math
 
 
 class Handler(webapp2.RequestHandler):
+    def send_data(self, data, **kw):
+        data_obj = {'data': data}
+        if kw is not None:
+            kw.update(data_obj)
+        else:
+            kw = data_obj 
+        self.send(kw)
+
+    def send_error(self, msg, **kw):
+        data_obj = {'msg': msg}
+        if kw is not None:
+            kw.update(data_obj)
+        else:
+            kw = data_obj 
+        self.send(kw, 400)
+
     def send(self, data, status=200):
         data['status'] = status
         self.send_response(data)
 
     def send_response(self, data):
-        self.response.out.write(json.dumps(data))
+        self.response.out.write(json.dumps(data, default=str))
 
     def parse_json(self):
         return json.loads(self.request.body)
@@ -68,10 +84,10 @@ class PublishArticle(Handler):
         article = self.create_article(article_data)
         try:
             article_key = article.put()
-            self.send({'data': {'articleId': article_key.id(), 'urlSafeKey': article_key.urlsafe()},
-                       'msg': 'article saved in db'})
+            data = {'articleId': article_key.id(), 'urlSafeKey': article_key.urlsafe()}
+            self.send_data(data, msg='article saved in dB')
         except db.Error as e:
-            self.send({'msg': str(e)}, 400)
+            self.send_error(str(e))
 
     def create_article(self, article_data):
         article = Article()
@@ -94,6 +110,24 @@ class PublishArticle(Handler):
         return article
 
 
+class GetPopularArticles(Handler):
+    def get(self):
+        try:
+            popular_articles = [dict(article.to_dict(), id=article.key.id()) for article in Article.gql('order by views desc limit 4').fetch()]            
+            self.send_data(popular_articles)
+        except db.Error as e:
+            self.send_error(str(e))
+
+class GetLatestArticles(Handler):
+    def get(self):
+        try:
+            latest_articles = [dict(article.to_dict(), id=article.key.id()) for article in Article.gql('order by created desc limit 5').fetch()]
+            self.send_data(latest_articles)
+        except db.Error as e:
+            self.send_error(str(e))
+
 app = webapp2.WSGIApplication([
-    ('/api/publisharticle', PublishArticle)
+    ('/api/publisharticle', PublishArticle),
+    ('/api/populararticles', GetPopularArticles),
+    ('/api/latestarticles', GetLatestArticles),    
 ], debug=True)
