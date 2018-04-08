@@ -123,8 +123,10 @@ class GetPopularArticles(Handler):
 
 class GetLatestArticles(Handler):
     def get(self):
-        count = self.request.get('count') or 5
-        query = "order by created desc limit %s" % count
+        count = int(self.request.get('count')) or 5
+        page_no = int(self.request.get('page')) or 1
+        offset = (page_no - 1) * count
+        query = "order by created desc limit %s offset %s" % (count, offset)
         try:
             latest_articles = [dict(article.to_dict(), id=article.key.id()) for article in Article.gql(query).fetch()]
             self.send_data(latest_articles)
