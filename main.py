@@ -55,6 +55,7 @@ class Handler(webapp2.RequestHandler):
         self.send_response(data)
 
     def send_response(self, data):
+        self.response.headers['Content-Type'] = 'application/json'
         self.response.out.write(json.dumps(data, default=str))
 
     def parse_json(self):
@@ -112,16 +113,20 @@ class PublishArticle(Handler):
 
 class GetPopularArticles(Handler):
     def get(self):
+        count = self.request.get('count') or 5
+        query = "order by views desc limit %s" % count
         try:
-            popular_articles = [dict(article.to_dict(), id=article.key.id()) for article in Article.gql('order by views desc limit 4').fetch()]            
+            popular_articles = [dict(article.to_dict(), id=article.key.id()) for article in Article.gql(query).fetch()]            
             self.send_data(popular_articles)
         except db.Error as e:
             self.send_error(str(e))
 
 class GetLatestArticles(Handler):
     def get(self):
+        count = self.request.get('count') or 5
+        query = "order by created desc limit %s" % count
         try:
-            latest_articles = [dict(article.to_dict(), id=article.key.id()) for article in Article.gql('order by created desc limit 5').fetch()]
+            latest_articles = [dict(article.to_dict(), id=article.key.id()) for article in Article.gql(query).fetch()]
             self.send_data(latest_articles)
         except db.Error as e:
             self.send_error(str(e))
