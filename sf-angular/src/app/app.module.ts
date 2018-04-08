@@ -16,13 +16,15 @@ import { StoryComponent } from './story/story.component';
 import { TrendingStoryComponent } from './trending-story/trending-story.component';
 import { PaginatedStoryComponent } from './paginated-story/paginated-story.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ArticlePageComponent } from './article-page/article-page.component';
 
 
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'Author', component: AuthorsComponent },
-  { path: 'ArticleEditor', component: ArticleEditorComponent}
+  { path: 'ArticleEditor', component: ArticleEditorComponent},
+  { path: 'Article', component: ArticlePageComponent}
 ];
 
 @NgModule({
@@ -34,7 +36,8 @@ const routes: Routes = [
     ArticleEditorComponent,
     StoryComponent,
     TrendingStoryComponent,
-    PaginatedStoryComponent
+    PaginatedStoryComponent,
+    ArticlePageComponent
   ],
   imports: [
     BrowserModule,

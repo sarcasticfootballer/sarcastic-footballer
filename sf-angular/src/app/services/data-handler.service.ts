@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Article, IArticle } from '../DTO/Article.model';
+import  'rxjs/add/operator/map';
 @Injectable()
 export class DataHandlerService {
   constructor(private http: HttpClient) {}
@@ -14,6 +15,10 @@ export class DataHandlerService {
   submitArticle(article: Readonly<IArticle>) {
     console.log(article);
     this.http.post(`${this.baseUrl}publisharticle`, article).subscribe(a => console.log(a));
+  }
+
+  getLatestArticles() {
+    return this.http.get(`http://sarcastic-footballer.appspot.com/api/latestarticles`).map((a:any)=>a.data);
   }
 }
 
