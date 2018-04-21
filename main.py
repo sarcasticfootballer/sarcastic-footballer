@@ -39,7 +39,7 @@ class Handler(webapp2.RequestHandler):
         if kw is not None:
             kw.update(data_obj)
         else:
-            kw = data_obj 
+            kw = data_obj
         self.send(kw)
 
     def send_error(self, msg, **kw):
@@ -47,7 +47,7 @@ class Handler(webapp2.RequestHandler):
         if kw is not None:
             kw.update(data_obj)
         else:
-            kw = data_obj 
+            kw = data_obj
         self.send(kw, 400)
 
     def send(self, data, status=200):
@@ -85,7 +85,8 @@ class PublishArticle(Handler):
         article = self.create_article(article_data)
         try:
             article_key = article.put()
-            data = {'articleId': article_key.id(), 'urlSafeKey': article_key.urlsafe()}
+            data = {'articleId': article_key.id(
+            ), 'urlSafeKey': article_key.urlsafe()}
             self.send_data(data, msg='article saved in dB')
         except db.Error as e:
             self.send_error(str(e))
@@ -113,28 +114,49 @@ class PublishArticle(Handler):
 
 class GetPopularArticles(Handler):
     def get(self):
-        count = self.request.get('count') or 5
-        query = "order by views desc limit %s" % count
         try:
-            popular_articles = [dict(article.to_dict(), id=article.key.id()) for article in Article.gql(query).fetch()]            
+            count = int(self.request.get('count') or 5)
+            query = "order by views desc limit %s" % count
+            popular_articles = [dict(article.to_dict(), id=article.key.id())
+                                for article in Article.gql(query).fetch()]
             self.send_data(popular_articles)
         except db.Error as e:
             self.send_error(str(e))
+        except ValueError as e:
+            self.send_error(str(e))
+
 
 class GetLatestArticles(Handler):
     def get(self):
-        count = int(self.request.get('count')) or 5
-        page_no = int(self.request.get('page')) or 1
-        offset = (page_no - 1) * count
-        query = "order by created desc limit %s offset %s" % (count, offset)
         try:
-            latest_articles = [dict(article.to_dict(), id=article.key.id()) for article in Article.gql(query).fetch()]
+            count = int(self.request.get('count') or 5)
+            page_no = int(self.request.get('page') or 1)
+            offset = (page_no - 1) * count
+            query = "order by created desc limit %s offset %s" % (count, offset)
+            latest_articles = [dict(article.to_dict(), id=article.key.id())
+                               for article in Article.gql(query).fetch()]
             self.send_data(latest_articles)
         except db.Error as e:
             self.send_error(str(e))
+        except ValueError as e:
+            self.send_error(str(e))
+
+
+class GetArticle(Handler):
+    def get(self):
+        try:
+            article_id = int(self.request.get('id'))            
+            data = dict(Article.get_by_id(article_id).to_dict(), id=article_id)
+            self.send_data(data)
+        except db.Error as e:
+            self.send_error(str(e))
+        except ValueError as e:
+            self.send_error(str(e))
+    
 
 app = webapp2.WSGIApplication([
     ('/api/publisharticle', PublishArticle),
     ('/api/populararticles', GetPopularArticles),
-    ('/api/latestarticles', GetLatestArticles),    
+    ('/api/latestarticles', GetLatestArticles),
+    ('/api/getarticle', GetArticle),
 ], debug=True)
