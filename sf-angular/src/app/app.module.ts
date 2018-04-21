@@ -20,11 +20,13 @@ import { ArticlePageComponent } from './article-page/article-page.component';
 
 
 
+
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'Author', component: AuthorsComponent },
   { path: 'ArticleEditor', component: ArticleEditorComponent},
-  { path: 'Article', component: ArticlePageComponent}
+  { path: 'Article/:article', component: ArticlePageComponent},
+  
 ];
 
 @NgModule({
@@ -37,7 +39,8 @@ const routes: Routes = [
     StoryComponent,
     TrendingStoryComponent,
     PaginatedStoryComponent,
-    ArticlePageComponent
+    ArticlePageComponent,
+   
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 import { DataHandlerService } from '../services/data-handler.service';
 import { Observable,Subscribable } from 'rxjs/Observable';
 import { IArticle } from '../DTO/Article.model';
@@ -10,6 +10,7 @@ import { IArticle } from '../DTO/Article.model';
 })
 export class ArticlePageComponent implements OnInit {
 articles:IArticle[];
+@Input() item;
   constructor(private datahandler: DataHandlerService) { }
 
   ngOnInit() {

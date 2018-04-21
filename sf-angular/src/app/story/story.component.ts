@@ -7,9 +7,13 @@ import { Component, OnInit,Input, Output , EventEmitter} from '@angular/core';
 })
 export class StoryComponent implements OnInit {
   @Input() story;
+  @Output() article = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
+  articlePage(){
+    this.article.emit();
+  }
 }
