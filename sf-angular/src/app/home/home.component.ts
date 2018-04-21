@@ -26,8 +26,5 @@ trendingArticleData = '';
 
   }
 
-  article(story){
-    console.log(story)
-    this.router.navigate(['Article/'+story]);
-  }
+  
 }

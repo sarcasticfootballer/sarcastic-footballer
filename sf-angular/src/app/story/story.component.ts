@@ -1,4 +1,6 @@
 import { Component, OnInit,Input, Output , EventEmitter} from '@angular/core';
+import { Router} from '@angular/router';
+import { IArticle } from '../DTO/Article.model';
 
 @Component({
   selector: 'app-story',
@@ -7,13 +9,16 @@ import { Component, OnInit,Input, Output , EventEmitter} from '@angular/core';
 })
 export class StoryComponent implements OnInit {
   @Input() story;
-  @Output() article = new EventEmitter();
-  constructor() { }
+ 
+  article:IArticle;
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
   articlePage(){
-    this.article.emit();
+   this.article=this.story;
+    console.log(this.article)
+    this.router.navigate(['Article/'+this.article]);
   }
 }
