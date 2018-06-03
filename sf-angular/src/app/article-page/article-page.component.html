@@ -1,9 +1,21 @@
-<p>
-  article-page works!
-</p>
-{{story.headline}}
-<button (click)="getArticle()">click here</button>
+<div class="row">
+<div class="col-lg-1">
+</div>
+<div class="article col-lg-7">
+    
+  <h1 class="articleHeadline">{{story.headline}}</h1>
+  
+                <h5 class="articleDetails"> 	<i class="fas fa-user"></i> {{story.author}}
+<i class="fas fa-eye"></i>{{story.views +500}} views
+ </h5> 
+ 
+  <img class="articleImage" src="{{story.picLink}}" width=100%>
 
 <div>
-  {{story.sideHeadline}}
+ 
+<h2 class="articleSideHeadline">{{story.sideHeadline}}</h2>
+  <div class="articleContent" [innerHTML]="story.content"></div>
+</div>
+<div >
+
 </div>

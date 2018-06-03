@@ -1,0 +1,45 @@
+.article
+{
+     background-color:#f8f8f8;
+    width: 100%;
+    margin: 10px;
+
+     box-shadow:0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+          display: block;
+          border-radius: .3rem;
+}
+.articleHeadline
+{
+    font-weight: bold;
+}
+.articleDetails
+{
+    float: right;
+    font-size: 15px;
+}
+.articleSideHeadline
+{
+       font-size: 25px;
+       font-weight: 600;
+}
+.articleImage
+{
+     
+    text-align: center;
+}
+.articleContent img,.articleContent p figure img,.articleContent img,.articleContent p img
+{
+    padding: 35px;
+    padding-left: 15%;
+    padding-right: 15%;
+        min-height: 250px;
+    
+    width: 100%;
+}
+.articleContent
+{
+    font-size: 20px;
+color: #111111;
+font-family: helvetica, sans-serif;
+font-style: normal;
+}

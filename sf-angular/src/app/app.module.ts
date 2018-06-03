@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'Author', component: AuthorsComponent },
   { path: 'ArticleEditor', component: ArticleEditorComponent},
   { path: 'Article/:article', component: ArticlePageComponent},
-  
+  {path: 'ArticlePage', component: ArticlePageComponent}
 ];
 
 @NgModule({
