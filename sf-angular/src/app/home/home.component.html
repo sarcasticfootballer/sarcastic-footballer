@@ -8,7 +8,7 @@
   
   <div class="col-md-6">
      <h1 class="header"><i class="fas fa-newspaper"></i> LATEST</h1>
-    <div class="row" *ngFor="let story of latestArticleData">
+    <div class="row" *ngFor="let story of latestArticleData" (click)="showArticle(story)">
       <app-story [story]="story" ></app-story>
     
     </div>

@@ -18,7 +18,7 @@ export class DataHandlerService {
   }
 
   getLatestArticles() {
-    return this.http.get(`http://sarcastic-footballer.appspot.com/api/latestarticles`).map((a:any)=>a.data);
+    return this.http.get(`${this.baseUrl}latestarticles`).map((a:any)=>a.data);
   }
 }
 

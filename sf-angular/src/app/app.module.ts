@@ -17,7 +17,7 @@ import { TrendingStoryComponent } from './trending-story/trending-story.componen
 import { PaginatedStoryComponent } from './paginated-story/paginated-story.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ArticlePageComponent } from './article-page/article-page.component';
-
+import { CommonService} from './services/common.service';
 
 
 
@@ -52,7 +52,7 @@ const routes: Routes = [
     EditorModule,
     NgxPaginationModule
   ],
-  providers: [DataHandlerService],
+  providers: [DataHandlerService,CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

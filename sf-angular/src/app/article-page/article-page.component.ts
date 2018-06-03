@@ -3,6 +3,7 @@ import { DataHandlerService } from '../services/data-handler.service';
 import { Observable,Subscribable } from 'rxjs/Observable';
 import { IArticle } from '../DTO/Article.model';
 import { Router, ActivatedRoute} from '@angular/router';
+import { CommonService} from '../services/common.service';
 @Component({
   selector: 'app-article-page',
   templateUrl: './article-page.component.html',
@@ -11,17 +12,17 @@ import { Router, ActivatedRoute} from '@angular/router';
 export class ArticlePageComponent implements OnInit {
 articles:IArticle[];
 story:IArticle;
-  constructor(private datahandler: DataHandlerService,private route:ActivatedRoute,private router:Router) { 
+id;
+  constructor(private common: CommonService,private route:ActivatedRoute,private router:Router) { 
     this.route.params.subscribe(params => {
-      this.story = params['article'];
-      console.log(JSON.stringify(this.story))
+      this.id = params['article'];
+      //console.log(this.story)
       });
   }
 
   ngOnInit() {
+    this.story=this.common.getArticles(this.id);
+    console.log(this.story)
   }
-getArticle(){
-  this.datahandler.getLatestArticles().subscribe((a:any)=>{this.articles=a;console.log(this.articles)});
-  
-}
+
 }
