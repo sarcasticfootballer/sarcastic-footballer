@@ -18,6 +18,8 @@ import { PaginatedStoryComponent } from './paginated-story/paginated-story.compo
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ArticlePageComponent } from './article-page/article-page.component';
 import { CommonService} from './services/common.service';
+import { AdminArticleConsoleComponent } from './admin-article-console/admin-article-console.component';
+import { SearchResultDirective } from './search-result.directive';
 
 
 
@@ -26,7 +28,8 @@ const routes: Routes = [
   { path: 'Author', component: AuthorsComponent },
   { path: 'ArticleEditor', component: ArticleEditorComponent},
   { path: 'Article/:article', component: ArticlePageComponent},
-  {path: 'ArticlePage', component: ArticlePageComponent}
+  {path: 'ArticlePage', component: ArticlePageComponent},
+  {path: 'AdminConsole', component: AdminArticleConsoleComponent}
 ];
 
 @NgModule({
@@ -40,6 +43,8 @@ const routes: Routes = [
     TrendingStoryComponent,
     PaginatedStoryComponent,
     ArticlePageComponent,
+    AdminArticleConsoleComponent,
+    SearchResultDirective,
    
   ],
   imports: [
